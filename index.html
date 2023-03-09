@@ -14,42 +14,39 @@
 </head>
 
 <body>
-    <section class="gradient-custom">
+    <section class="gradient-custom mode">
         <div class="container py-5 h-100">
             <div class="row f-100">
-                <div class="col-md-5 col-lg-5 col-xl-5 mb-4 mb-md-0 bg-light rounded">
-                    <h5 class="font-weight-bold mb-3 mt-4 text-dark">Tools</h5>
-                    <div class="card">
-
+                <div class="col-md-5 col-lg-5 col-xl-5 mb-4 mb-md-0 bg-light rounded setting">
+                    <h5 class="font-weight-bold mb-3 mt-4 text-dark">Cài đặt</h5>
+                    <div class="card p-3">
+                        <span class="text-secondary fs-16 font-weight-bold mb-4">Chọn chế độ ánh sáng</span>
+                        <input type="checkbox" id="toggle" class="toggle--checkbox">
+                        <label for="toggle" class="toggle--label">
+                        </label>
                     </div>
                 </div>
                 <div class="col-md-7 col-lg-7 col-xl-7">
                     <div class="card card-bordered">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center mt-2">
-                                <h5 class="text-dark">Message with Chatbot</h5>
+                                <h5 class="text-dark">Nhắn tin với ChatBot</h5>
                             </div>
                         </div>
-
-
-                        <div class="ps-container ps-theme-default ps-active-y" id="chat-content"
-                            style="overflow-y: scroll !important; height:400px !important;">
-                            <div class="media media-chat">
-                                <img class="avatar"
-                                    src="./image/icons8-bot-30.png"
-                                    alt="...">
-                                <div class="card mask-custom time-hover">
-                                    <div class="card-body">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            eiusmod tempor
-                                        </p>
-                                    </div>
+                        <div class="ps-container ps-theme-default ps-active-y list-message" id="chat-content"
+                            style="overflow-y: scroll !important; height:500px !important;">
+                            <!-- <div class="media media-chat">
+                                <img class="avatar" src="./image/icons8-bot-30.png" alt="...">
+                                <div class="media-body">
+                                    <p class="mb-0 mr-10">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod tempor
+                                    </p>
+                                    <p class="mr-1 text-dark small mb-0 meta"> 23:58</p>
                                 </div>
                             </div>
-                            <p class="meta ml-5 pl-4 text-dark small mb-0"> 23:58</p>
 
-                            <!-- <div class="media media-meta-day">Today</div> -->
+                            <div class="media media-meta-day">Today</div>
 
                             <div class="media media-chat media-chat-reverse">
                                 <div class="media-body">
@@ -58,64 +55,10 @@
                                         eiusmod tempor
                                     </p>
                                     <p class="mr-1 text-dark small mb-0 d-flex justify-content-end meta"> 23:58</p>
-
+                                    <div class="lds-ellipsis border"><div></div><div></div><div></div></div>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="media media-chat">
-                                <img class="avatar"
-                                    src="https://img.icons8.com/color/36/000000/administrator-male.png"
-                                    alt="...">
-                                <div class="media-body">
-                                    <p>Okay</p>
-                                    <p>We will go on sunday? </p>
-                                    <p class="meta"><time datetime="2018">00:07</time></p>
-                                </div>
-                            </div>
-
-                            <div class="media media-chat media-chat-reverse">
-                                <div class="media-body">
-                                    <p class="mb-0">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor
-                                    </p>
-                                    <p class="meta"><time datetime="2018">00:09</time></p>
-                                </div>
-                            </div>
-
-                            <div class="media media-chat">
-                                <img class="avatar"
-                                    src="https://img.icons8.com/color/36/000000/administrator-male.png"
-                                    alt="...">
-                                <div class="media-body">
-                                    <p>Okay i will meet you on Sandon Square </p>
-                                    <p class="meta"><time datetime="2018">00:10</time></p>
-                                </div>
-                            </div>
-
-                            <div class="media media-chat media-chat-reverse">
-                                <div class="media-body">
-                                    <p>Do you have pictures of Matley Marriage?</p>
-                                    <p class="meta"><time datetime="2018">00:10</time></p>
-                                </div>
-                            </div>
-
-                            <div class="media media-chat">
-                                <img class="avatar"
-                                    src="https://img.icons8.com/color/36/000000/administrator-male.png"
-                                    alt="...">
-                                <div class="media-body">
-                                    <p>Sorry I don't have. i changed my phone.</p>
-                                    <p class="meta"><time datetime="2018">00:12</time></p>
-                                </div>
-                            </div>
-
-                            <div class="media media-chat media-chat-reverse">
-                                <div class="media-body">
-                                    <p>Okay then see you on sunday!!</p>
-                                    <p class="meta"><time datetime="2018">00:12</time></p>
-                                </div>
-                            </div>
 
                             <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
                                 <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;">
@@ -128,93 +71,19 @@
                         </div>
 
                         <div class="publisher bt-1 border-light">
-                            <img class="avatar avatar-xs"
-                                src="https://img.icons8.com/color/36/000000/administrator-male.png"
-                                alt="...">
-                            <input class="publisher-input" type="text" placeholder="Write something">
-                            <span class="publisher-btn file-group">
+                            <img class="avatar avatar-xs" src="./image/icons8-bot-30.png" alt="...">
+                            <input class="publisher-input form-control question" type="text" placeholder="">
+                            <!-- <span class="publisher-btn file-group">
                                 <i class="fa fa-paperclip file-browser"></i>
                                 <input type="file">
                             </span>
                             <a class="publisher-btn" href="#" data-abc="true"><i
-                                    class="fa fa-smile"></i></a>
-                            <a class="publisher-btn text-info" href="#" data-abc="true"><i
-                                    class="fa fa-paper-plane"></i></a>
+                                    class="fa fa-smile"></i></a> -->
+                            <a class="publisher-btn text-info icon chat" href="#" data-abc="true">
+                                <i class="fa-solid fa-thumbs-up fs-22"></i>
+                            </a>
                         </div>
 
-                    </div>
-                    <div class="chat-form">
-                        <div class="border  bg-secondary p-4 rounded-top" style="height: auto;">
-                            <div class="d-flex justify-content-between align-items-center pb-3">
-                                <h5 class="mb-0 text-white">Message with Chatbot</h5>
-                            </div>
-                            <ul class="list-unstyled text-white list-message">
-                                <!-- <li class="mb-2">
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <img src="./image/icons8-bot-30.png" alt="avatar"
-                                            class="rounded-circle d-flex align-self-start me-3 shadow-1-strong border p-1 mr-3"
-                                            width="50">
-                                        <div class="card mask-custom time-hover">
-                                            <div class="card-body">
-                                                <p class="mb-0">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor
-                                                </p>
-                                            </div>
-                                            <div class="bg-dark d-none comment-time">
-                                                <p class="d-block">23:58</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="ml-5 pl-3 text-light small mb-0"> 23:58</p>
-                                </li>
-                                <li class="mb-2">
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <div class="card mask-custom time-hover">
-                                            <div class="card-body">
-                                                <p class="mb-0">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor
-                                                </p>
-                                            </div>
-                                            <div class="bg-dark d-none comment-time">
-                                                <p class="d-block">23:58</p>
-                                            </div>
-                                        </div>
-                                        <img src="./image/icons8-bot-30.png" alt="avatar"
-                                            class="rounded-circle d-flex align-self-start me-3 shadow-1-strong border p-1 ml-3"
-                                            width="50">
-                                    </div>
-                                    <p class="mr-5 pr-3 text-light small mb-0 d-flex justify-content-end"> 23:58</p>
-                                </li>
-                                <li class="mb-2">
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <img src="./image/icons8-bot-30.png" alt="avatar"
-                                            class="rounded-circle d-flex align-self-start me-3 shadow-1-strong border p-1 mr-3"
-                                            width="50">
-                                        <div class="card mask-custom time-hover">
-                                            <div class="card-body">
-                                                <p class="mb-0">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor
-                                                </p>
-                                            </div>
-                                            <div class="bg-dark d-none comment-time">
-                                                <p class="d-block">23:58</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="ml-5 pl-3 text-light small mb-0 "> 23:58</p>
-                                </li> -->
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bg-light text-muted d-flex justify-content-start align-items-center p-3 rounded-bottom">
-                        <img src="./image/icons8-bot-30.png" class="border-secondary rounded-circle border p-1 mr-2"
-                            alt="avatar 3" style="width: 40px; height: 100%;">
-                        <input type="text" class="form-control form-control-lg border-0 mr-3 question"
-                            id="exampleFormControlInput1" placeholder="Type message">
-                        <a class="ms-3 chat icon" href="#!"><i class="fa-solid fa-thumbs-up fs-24"></i></a>
                     </div>
                 </div>
 
@@ -229,48 +98,76 @@
 <script>
     $('.question').keyup(function () {
         var question = $('.question').val();
+        // console.log(question);
         if (question !== '') {
-            $('.icon').html('<i class="fas fa-paper-plane fs-24"></i>');
+            $('.icon').html('<i class="fas fa-paper-plane fs-22"></i>');
         } else {
-            $('.icon').html('<i class="fa-solid fa-thumbs-up fs-24"></i>');
+            $('.icon').html('<i class="fa-solid fa-thumbs-up fs-22"></i>');
+        }
+    });
+
+    $('.toggle--checkbox').change(function(e){
+        // console.log(1);
+        e.preventDefault();
+        if($('section').hasClass('bg-dark')){
+            $('.mode').addClass('bg-cyan');
+            $('.mode').removeClass('bg-dark');
+        }else{
+            $('.mode').addClass('bg-dark');
+            $('.mode').removeClass('bg-cyan');
         }
     });
     $('.chat').click(function () {
+        // console.log('a');
         var question = $('.question').val();
         var date = new Date();
+        var minutes = 0;
+        var delay = 3000;
         if (date.getMinutes() < 10) {
-            minutes = '0' + date.getMinutes();
+            var minutes = '0' + date.getMinutes();
+        }else{
+            var minutes = date.getMinutes();
         }
         var time = date.getHours() + ":" + minutes;
         if ($('.chat > i').hasClass('fa-thumbs-up')) {
             $('.list-message').append(
-                '<li class="mb-2">' +
-                '<div class="d-flex justify-content-end mb-2">' +
-                '<div class="card mask-custom time-hover">' +
-                '<div class="card-body">' +
-                '<i class="fa-solid fa-thumbs-up fs-24"></i>' +
-                '</div>' +
-                '</div>' +
-                '<img src="./image/icons8-bot-30.png" alt="avatar" class="rounded-circle d-flex align-self-start me-3 shadow-1-strong border p-1 ml-3" width="50">' +
-                '</div>' +
-                '<p class="mr-5 pr-3 text-light small mb-0 d-flex justify-content-end">' + time + '</p>' +
-                '</li>'
+                '<div class="media media-chat media-chat-reverse">'+
+                    '<div class="media-body">'+
+                        '<p class="mb-0">'+
+                            '<i class="fa-solid fa-thumbs-up fs-22"></i>'+
+                        '</p>'+
+                        '<p class="mr-1 text-dark small mb-0 pr-0 d-flex justify-content-end meta">'+time+'</p>'+
+                    '</div>'+
+                '</div>'
+                // '<div class="lds-ellipsis border rounded ml-3 mt-2"><div></div><div></div><div></div></div>'
             )
+            setTimeout(function(){
+                $('.list-message').append(
+                    '<div class="lds-ellipsis border ml-4 mt-4"><div></div><div></div><div></div></div></br>'
+                )},1000);
+            setTimeout(function(){
+                $('.list-message').append(
+                    '<div class="media media-chat">'+
+                        '<img class="avatar" src="./image/icons8-bot-30.png" alt="...">'+
+                        '<div class="media-body">'+
+                            '<p class="mb-0 mr-10">'+
+                                'Cảm ơn bạn vì đã thích câu nói vừa rồi!'+
+                            '</p>'+
+                            '<p class="mr-1 text-dark small pr-0 mb-0 meta">'+time+'</p>'+
+                        '</div>'+
+                '</div>',
+                $('.lds-ellipsis').hide()
+                )},delay);
         } else {
             $('.list-message').append(
-                '<li class="mb-2">' +
-                '<div class="d-flex justify-content-end mb-2">' +
-                '<div class="card mask-custom time-hover">' +
-                '<div class="card-body">' +
-                '<p class="mb-0">' +
-                question
-                + '</p>' +
-                '</div>' +
-                '</div>' +
-                '<img src="./image/icons8-bot-30.png" alt="avatar" class="rounded-circle d-flex align-self-start me-3 shadow-1-strong border p-1 ml-3" width="50">' +
-                '</div>' +
-                '<p class="mr-5 pr-3 text-light small mb-0 d-flex justify-content-end">' + time + '</p>' +
-                '</li>'
+                '<div class="media media-chat media-chat-reverse">'+
+                    '<div class="media-body">'+
+                        '<p class="mb-0">'+
+                            question+
+                        '</p>'+
+                        '<p class="mr-1 text-dark small mb-0 d-flex justify-content-end meta">'+time+'</p>'+
+                    '</div>'+
+                '</div>'
             )
         }
 

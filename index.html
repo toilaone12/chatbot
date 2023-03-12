@@ -73,12 +73,11 @@
                         <div class="publisher bt-1 border-light">
                             <img class="avatar avatar-xs" src="./image/icons8-bot-30.png" alt="...">
                             <input class="publisher-input form-control question" type="text" placeholder="">
-                            <!-- <span class="publisher-btn file-group">
-                                <i class="fa fa-paperclip file-browser"></i>
-                                <input type="file">
+                            <span class="publisher-btn voice-btn">
+                                <i class="fa-solid fa-microphone fs-22"></i>
                             </span>
-                            <a class="publisher-btn" href="#" data-abc="true"><i
-                                    class="fa fa-smile"></i></a> -->
+                            <!-- <a class="publisher-btn" href="#" data-abc="true"><i
+                                    class="fa fa-smile"></i></a>  -->
                             <a class="publisher-btn text-info icon chat" href="#" data-abc="true">
                                 <i class="fa-solid fa-thumbs-up fs-22"></i>
                             </a>
@@ -97,7 +96,21 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $(document).ready(function(){
-        
+        var recognition = new webkitSpeechRecognition();
+		recognition.continuous = true;
+		recognition.interimResults = true;
+
+        $('.voice-btn').click(function(){
+            recognition.start();
+        });
+
+        recognition.onresult = function(event) {
+			// Lấy kết quả nhận dạng giọng nói
+			var result = event.results[event.results.length-1][0].transcript;
+			// In kết quả vào input
+			$(".question").val(result);
+		}
+
         $('.question').keyup(function () {
             var question = $('.question').val();
             // console.log(question);

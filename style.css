@@ -275,6 +275,7 @@ h4.card-title {
     padding-left:  18px;
     padding-right:  18px;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .media-chat .media-body p {
@@ -284,6 +285,7 @@ h4.card-title {
     margin-bottom: 4px;
     background-color: #f5f6f7;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 

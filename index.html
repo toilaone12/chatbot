@@ -96,92 +96,129 @@
     integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    $('.question').keyup(function () {
-        var question = $('.question').val();
-        // console.log(question);
-        if (question !== '') {
-            $('.icon').html('<i class="fas fa-paper-plane fs-22"></i>');
-        } else {
-            $('.icon').html('<i class="fa-solid fa-thumbs-up fs-22"></i>');
-        }
-    });
-
-    $('.toggle--checkbox').change(function(e){
-        // console.log(1);
-        e.preventDefault();
-        if($('section').hasClass('bg-dark')){
-            $('.mode').addClass('bg-cyan');
-            $('.mode').removeClass('bg-dark');
-        }else{
-            $('.mode').addClass('bg-dark');
-            $('.mode').removeClass('bg-cyan');
-        }
-    });
-    $('.chat').click(function () {
-        // console.log('a');
-        var question = $('.question').val();
-        var date = new Date();
-        var minutes = 0;
-        var delay = 3000;
-        if (date.getMinutes() < 10) {
-            var minutes = '0' + date.getMinutes();
-        }else{
-            var minutes = date.getMinutes();
-        }
-        var time = date.getHours() + ":" + minutes;
-        if ($('.chat > i').hasClass('fa-thumbs-up')) {
-            $('.list-message').append(
-                '<div class="media media-chat media-chat-reverse">'+
-                    '<div class="media-body">'+
-                        '<p class="mb-0">'+
-                            '<i class="fa-solid fa-thumbs-up fs-22"></i>'+
-                        '</p>'+
-                        '<p class="mr-1 text-dark small mb-0 pr-0 d-flex justify-content-end meta">'+time+'</p>'+
-                    '</div>'+
-                '</div>'
-                // '<div class="lds-ellipsis border rounded ml-3 mt-2"><div></div><div></div><div></div></div>'
-            )
+    $(document).ready(function(){
+        
+        $('.question').keyup(function () {
+            var question = $('.question').val();
+            // console.log(question);
+            if (question !== '') {
+                $('.icon').html('<i class="fas fa-paper-plane fs-22"></i>');
+            } else {
+                $('.icon').html('<i class="fa-solid fa-thumbs-up fs-22"></i>');
+            }
+        });
+    
+        $('.toggle--checkbox').change(function(e){
+            // console.log(1);
+            e.preventDefault();
+            if($('section').hasClass('bg-dark')){
+                $('.mode').addClass('bg-cyan');
+                $('.mode').removeClass('bg-dark');
+            }else{
+                $('.mode').addClass('bg-dark');
+                $('.mode').removeClass('bg-cyan');
+            }
+        });
+        $('.chat').click(function () {
+            // console.log('a');
+            var rand =  Math.floor(Math.random() * 100) + 1;
+            // console.log(rand);
+            function printText(text, index) {
+                if (index < text.length) {
+                    setTimeout(function() {
+                        printText(text, index + 1);
+                    }, 50);
+                    $('.media-answer-'+rand).append(text[index]);
+                }
+                return '';
+            }
+            var question = $('.question').val();
+            var date = new Date();
+            var minutes = 0;
+            var delay = 3000;
+            var index = 0;
+            if (date.getMinutes() < 10) {
+                var minutes = '0' + date.getMinutes();
+            }else{
+                var minutes = date.getMinutes();
+            }
+            var str = 'Cảm ơn bạn vì đã thích câu nói vừa rồi!';
+            var time = date.getHours() + ":" + minutes;
+            var html = '';
+            if ($('.chat > i').hasClass('fa-thumbs-up')) {
+                html = '<div class="media media-chat media-chat-reverse">'+
+                        '<div class="media-body">'+
+                            '<p class="mb-0">'+
+                                '<i class="fa-solid fa-thumbs-up fs-22"></i>'+
+                            '</p>'+
+                            '<p class="mr-1 text-dark small mb-0 pr-0 d-flex justify-content-end meta">'+time+'</p>'+
+                        '</div>'+
+                    '</div>';
+            } else {
+                html = '<div class="media media-chat media-chat-reverse">'+
+                        '<div class="media-body">'+
+                            '<p class="mb-0">'+
+                                question+
+                            '</p>'+
+                            '<p class="mr-1 text-dark small mb-0 pr-0 d-flex justify-content-end meta">'+time+'</p>'+
+                        '</div>'+
+                    '</div>';
+                $('.question').val('');
+                $('.icon').html('<i class="fa-solid fa-thumbs-up fs-22"></i>');
+            }
+            $('.list-message').append(html);
             setTimeout(function(){
                 $('.list-message').append(
                     '<div class="lds-ellipsis border ml-4 mt-4"><div></div><div></div><div></div></div></br>'
                 )},1000);
-            setTimeout(function(){
-                $('.list-message').append(
-                    '<div class="media media-chat">'+
-                        '<img class="avatar" src="./image/icons8-bot-30.png" alt="...">'+
-                        '<div class="media-body">'+
-                            '<p class="mb-0 mr-10">'+
-                                'Cảm ơn bạn vì đã thích câu nói vừa rồi!'+
-                            '</p>'+
-                            '<p class="mr-1 text-dark small pr-0 mb-0 meta">'+time+'</p>'+
-                        '</div>'+
-                '</div>',
-                $('.lds-ellipsis').hide()
-                )},delay);
-        } else {
-            $('.list-message').append(
-                '<div class="media media-chat media-chat-reverse">'+
-                    '<div class="media-body">'+
-                        '<p class="mb-0">'+
-                            question+
-                        '</p>'+
-                        '<p class="mr-1 text-dark small mb-0 d-flex justify-content-end meta">'+time+'</p>'+
-                    '</div>'+
-                '</div>'
-            )
-        }
+            $.ajax({
+                url: 'api.php',
+                method: 'POST',
+                data: {
+                    question: question,
+                },
+                success: function(data){
+                    // console.log(data);
+                    if(data == 'fail'){
+                        setTimeout(function(){
+                        $('.list-message').append(
+                            '<div class="media media-chat">'+
+                                '<img class="avatar" src="./image/icons8-bot-30.png" alt="...">'+
+                                '<div class="media-body hold">'+
+                                    '<p class="mb-0 mr-10 media-answer-'+rand+'">'+
+                                        printText('Cảm ơn bạn vì đã thích câu nói vừa rồi!',-1)+
+                                    '</p>'+
+                                    '<p class="mr-1 ml-2 text-dark small pr-0 mb-0 meta">'+time+'</p>'+
+                                '</div>'+
+                        '</div>',
+                        $('.lds-ellipsis').hide())
+                        },delay);
+                    }else{
+                        setTimeout(function(){
+                        $('.list-message').append(
+                            '<div class="media media-chat">'+
+                                '<img class="avatar" src="./image/icons8-bot-30.png" alt="...">'+
+                                '<div class="media-body hold">'+
+                                    '<p class="mb-0 px-3 mr-10 media-answer-'+rand+'">'+
+                                        printText(data,-1)+
+                                    '</p>'+
+                                    '<p class="mr-1 ml-2 text-dark small pr-0 mb-0 meta">'+time+'</p>'+
+                                '</div>'+
+                        '</div>',
+                        $('.lds-ellipsis').hide()
+                        )},delay);
+                    }
+                } 
+            })
+            // console.log(printText("Hello, world!", 0));
 
-        // $.ajax({
-        //     url: 'api.php',
-        //     method: 'POST',
-        //     data: {
-        //         question: question,
-        //     },
-        //     success: function(data){
-        //         console.log(data);
-        //     }
-        // })
+        });
     });
+    $('.hold').click(function() {
+        // alert("You entered p1!");
+        alert("You entered p1!");
+    });
+            // console.log(printText('Hello world!', 100));
 </script>
 
 </html>
